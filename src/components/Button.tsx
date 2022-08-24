@@ -1,15 +1,14 @@
 import React from 'react';
 
-type ButtonPropsType ={
-    callBack: ()=>void
+type ButtonPropsType = {
     nickName: string
+    callBack: () => void
+    className?: string
 }
 
-export const Button = (props:ButtonPropsType) => {
+export const Button: React.FC<ButtonPropsType> = (props) => {
     const onClickHandler = () => {
-props.callBack()
+        props.callBack()
     }
-    return (
-        <button onClick={onClickHandler}>{props.nickName}</button>
-    );
-};
+    return <button onClick={onClickHandler} className={props.className}>{props.nickName}</button>
+}
